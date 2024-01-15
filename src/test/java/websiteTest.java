@@ -10,7 +10,7 @@ public class websiteTest extends base {
         driver.manage().window().maximize();
         driver.findElement(By.xpath("//a[normalize-space()='building Web apps with ASP.NET Core']")).click();
         String text1=driver.findElement(By.xpath("//h1[@id='hero-title']")).getText();
-        String text2="ASP.NET documentationR";
+        String text2="ASP.NET documentation";
         Assert.assertEquals(text1,text2);
     }
     @Test
