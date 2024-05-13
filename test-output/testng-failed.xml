@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="D:/Automation/IntellijWorkspace/AzureDevops/TestingCICD3(failed)">
+    <classes>
+      <class name="websiteTest_myshuttle_javaproject">
+        <methods>
+          <include name="googleTitleTest"/>
+          <include name="teardown"/>
+          <include name="setupClass"/>
+        </methods>
+      </class> <!-- websiteTest_myshuttle_javaproject -->
+    </classes>
+  </test> <!-- D:/Automation/IntellijWorkspace/AzureDevops/TestingCICD3(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->

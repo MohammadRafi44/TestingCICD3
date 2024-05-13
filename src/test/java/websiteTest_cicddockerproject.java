@@ -2,7 +2,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class websiteTest extends base {
+public class websiteTest_cicddockerproject extends base {
 
     @Test
     public void WebsiteHomeTitle(){
