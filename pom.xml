@@ -11,11 +11,26 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+            <maven-jar-plugin>3.2.0</maven-jar-plugin>
+            <maven-compiler-plugin>3.11.0</maven-compiler-plugin>
+            <maven-surefire-plugin>3.1.2</maven-surefire-plugin>
+
+            <skip-tests>false</skip-tests>
+            <suite-file>testng.xml</suite-file>
+
     </properties>
 
     <dependencies>
 
 
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.3.1</version>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
@@ -48,27 +63,68 @@
 
 
     </dependencies>
+    <!-- Build Maven -->
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.3.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.8</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin}</version>
                 <configuration>
-                    <excludes>
-                        <exclude>**/*Config.*</exclude>
-                        <exclude>**/*Dev.*</exclude>
-                    </excludes>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>jacoco-report</id>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin}</version>
+                <configuration>
+                    <!--                        <suiteXmlFiles>-->
+                    <!--                            <suiteXmlFile>testng.xml</suiteXmlFile>-->
+                    <!--                        </suiteXmlFiles>-->
+                    <skipTests>${skip-tests}</skipTests>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suite-file}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+
+
         </plugins>
     </build>
 </project>
+
+        <!--<build>
+            <plugins>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>0.8.8</version>
+                    <configuration>
+                        <excludes>
+                            <exclude>**/*Config.*</exclude>
+                            <exclude>**/*Dev.*</exclude>
+                        </excludes>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>jacoco-report</id>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    </project>-->
