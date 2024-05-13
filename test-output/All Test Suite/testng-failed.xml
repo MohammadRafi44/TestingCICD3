@@ -5,9 +5,10 @@
     <classes>
       <class name="websiteTest_myshuttle_javaproject">
         <methods>
-          <include name="googleTitleTest"/>
           <include name="teardown"/>
           <include name="setupClass"/>
+          <include name="myShuttleImageExists"/>
+          <include name="myShuttleTitleCheck"/>
         </methods>
       </class> <!-- websiteTest_myshuttle_javaproject -->
     </classes>
